@@ -4,26 +4,23 @@ Created on Fri Mar 30 21:06:31 2018
 
 @author: hanjo
 """
-#cross imports
-from DePART.learning import models
-
-
-from sklearn.model_selection import KFold
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import mean_absolute_error, auc, mean_squared_error, r2_score, f1_score, accuracy_score
-from sklearn.preprocessing import LabelEncoder
-
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from joblib import Parallel, delayed
+from keras import backend as K
 from keras.utils import np_utils
 from keras.utils.generic_utils import get_custom_objects
-from keras import backend as K
-
-import pandas as pd
-import numpy as np
-from scipy import stats
-import seaborn as sns
 from pyteomics import achrom
-from joblib import Parallel, delayed
-import seaborn as sns
+from scipy import stats
+from sklearn.metrics import mean_absolute_error, auc, mean_squared_error, r2_score, f1_score, accuracy_score
+from sklearn.model_selection import KFold
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import StandardScaler
+
+# cross imports
+from DePART.learning import models
+
 
 def swish(x):
     return (K.sigmoid(x) * x)

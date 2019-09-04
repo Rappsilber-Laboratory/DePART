@@ -23,21 +23,26 @@ Dependencies
 * joblib
 * Biopython
 
+To install all dependencies use ``` pip install requirements.txt```
+
  Installation
  ----
-pip install depart
+ To install depart clone the repository and switch to a command line prompt.
+ 
+```pip install depart```
  
 
  CLI interface
  ----
- DePART comes with a command line script... [description tbd]
+ DePART comes with a command line script which is located in the bin folder. Run the script via the command line and use 
+ ```python bin/pyDePART.py --help``` to get all available options.
  
  Notes
  ----
- The current master & dev branch also supports the prediction of RP-LC RT times.
+ The current master & dev branch also support the prediction of RP-LC RT times.
  Changing the architecture and the parameters of neural network can be done
  by editing the RTMLlib. A few parameters can be changed by the function call,
- e.g. the activation function (swish is also supported).
+ e.g. the activation function (swish).
  
 
 Authors

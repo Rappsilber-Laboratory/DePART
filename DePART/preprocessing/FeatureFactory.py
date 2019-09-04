@@ -4,13 +4,16 @@ Created on Wed Mar 28 23:46:25 2018
 
 @author: Hanjo
 """
-import re
-import numpy as np
 import itertools
+import re
+
+import numpy as np
 import pandas as pd
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
 from pyteomics import parser
+
 from DePART.preprocessing import PrepFactory as PF
+
 
 class FeatureGenerator():
     """

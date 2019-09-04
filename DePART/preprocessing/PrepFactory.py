@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
-from pyteomics import parser
 import re
+import sys
+
+import numpy as np
 import pandas as pd
+from pyteomics import parser
+
 from DePART.preprocessing import FeatureFactory as FF
 from DePART.reader import ReaderFactory as RF
-import sys
+
 
 def to_minimal_df(df_in):
     """

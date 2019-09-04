@@ -4,112 +4,11 @@ Created on Fri Mar 30 18:28:55 2018
 
 @author: hanjo
 """
-from DePART.learning import processing as LP
-from DePART.preprocessing import FeatureFactory as FF
 
+from keras import optimizers
 from keras.layers import Dense, Dropout
 from keras.models import Sequential
-from sklearn.preprocessing import LabelEncoder
-import numpy as np
-from keras.models import load_model
-from keras import regularizers, optimizers
 
-# not really necessary and probably more confusing since the
-# sklearn API would be broken. Instead provide an example.
-#class DePART_Regressor():
-#    """
-#    Convenience Wrapper for using DePART. Features are generated automatically
-#    from the input data X.
-#    """
-#    
-#    def __init__(self, model):
-#        """
-#        """
-#        self.model = model
-#        
-#    def fit(self, X, epochs=100, batch_size=512):
-#        """
-#        Fits the model
-#        """
-#        #regression
-#        X_train_full, Seqs_train_full, y_train_full = LP.process_df(X)
-#        self.train_data_x = X_train_full
-#        self.train_sequences = Seqs_train_full
-#        self.train_data_y = y_train_full
-#        self.history = self.model.fit(X_train_full, y_train_full, 
-#                                      epochs=epochs,
-#                                      batch_size=batch_size)
-#        
-#    def predict(self, X):
-#        """
-#        Predict the outcomes.
-#        """
-#        X_train_full, Seqs_train_full, y_train_full = LP.process_df(X)
-#        self.pred_data_x = X_train_full
-#        self.pred_sequences = Seqs_train_full
-#        self.pred_data_y = y_train_full        
-#        return(self.model.predict(X_train_full))        
-#           
-#        
-#    def __process_df__(self):
-#        #todo
-#        pass
-#        
-#    
-#class DePART_Classifier(DePART_Regressor):
-#    """
-#    Convenience Wrapper for using DePART. Features are generated automatically
-#    from the input data X. X needs to have the following columns: Sequence, Fraction
-#    """
-#    
-#    def __init__(self, model=None, label_encoder=LabelEncoder()):
-#        """
-#        """
-#        self.model = model
-#        self.label_encoder = label_encoder
-#        
-#        
-#    def fit(self, df, epochs=100, batch_size=512):
-#        """
-#        Fits the model after feature generation
-#        """
-#        
-#        #generate features
-#        Generator = FF.FeatureGenerator()
-#        ff_df = Generator.create_all_features(df)
-#        #regression
-#        X_train_full, Seqs_train_full, y_train_full = LP.process_df(X)
-#        self.train_data_x = X_train_full
-#        self.train_sequences = Seqs_train_full
-#        self.train_data_y = y_train_full
-#        
-#        #label encoders
-#        self.label_encoder.fit(y_train_full)
-#    
-#        self.history = self.model.fit(X_train_full, y_train_full, 
-#                                      epochs=epochs,
-#                                      batch_size=batch_size)
-#        
-#    def predict(self, X):
-#        """
-#        Predict the outcomes.
-#        """
-#        X_train_full, Seqs_train_full, y_train_full = LP.process_df(X)
-#        self.pred_data_x = X_train_full
-#        self.pred_sequences = Seqs_train_full
-#        self.pred_data_y = y_train_full        
-#        return(self.model.predict(X_train_full).argmax(axis=1) + 1)  
-#    
-#    def predict_proba(self, X):
-#        """
-#        Predicts the probability for each class.
-#        """
-#        X_train_full, Seqs_train_full, y_train_full = LP.process_df(X)
-#        self.pred_data_x = X_train_full
-#        self.pred_sequences = Seqs_train_full
-#        self.pred_data_y = y_train_full
-#        
-#        return(self.model.predict(np.array(X_train_full)))
 
 def SAX_Model(ini_mode="normal", optimizer="adam", loss="categorical_crossentropy", 
               act=["relu", "tanh", "relu"], dr1=0.0, dr2=0.0, dr3=0.0, 
@@ -179,5 +78,3 @@ def FNN_Regressor(ini_mode="normal", loss="mse", act=["relu", "tanh", "relu"],
     model.compile(loss=loss, optimizer=optimizer, metrics=['mse'])
     #kernel_regularizer=regularizers.l2(0.01)
     return(model)
-    
-    
